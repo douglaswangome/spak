@@ -1,0 +1,43 @@
+.gallery-hero {
+	background: var(--navy);
+	padding: 4rem 1.5rem 3rem;
+	text-align: center;
+}
+
+.gallery-hero-inner {
+	max-width: 700px;
+	margin: 0 auto;
+}
+
+.gallery-eyebrow {
+	font-size: 12px;
+	font-weight: 700;
+	color: var(--lime);
+	text-transform: uppercase;
+	letter-spacing: 1.5px;
+	margin-bottom: 0.75rem;
+}
+
+.gallery-title {
+	font-size: clamp(1.8rem, 4vw, 2.8rem);
+	font-weight: 800;
+	color: #fff;
+	margin-bottom: 1rem;
+}
+
+.gallery-desc {
+	font-size: 1rem;
+	color: rgba(255, 255, 255, 0.72);
+	line-height: 1.8;
+	max-width: 520px;
+	margin: 0 auto;
+}
+
+/* Ensure the gallery-grid exists in index.css as you had it,
+   but confirm it uses CSS Grid as intended */
+.gallery-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+	gap: 1.25rem;
+	margin-top: 2rem;
+}

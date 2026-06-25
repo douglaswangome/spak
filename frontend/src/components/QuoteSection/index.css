@@ -1,0 +1,36 @@
+.quote-section {
+	background: linear-gradient(135deg, var(--navy), #2a5e9e);
+	padding: 5rem 1.5rem;
+	text-align: center;
+}
+
+.quote-container {
+	max-width: 600px;
+	margin: 0 auto;
+}
+
+.quote-icon {
+	font-size: 2rem;
+	font-style: italic;
+	font-weight: 700;
+	color: var(--lime);
+	margin-bottom: 0.5rem;
+}
+
+.quote-text {
+	font-size: 1.2rem;
+	color: #fff;
+	font-weight: 600;
+	line-height: 1.6;
+	margin-bottom: 1.5rem;
+}
+
+.quote-source {
+	font-size: 13px;
+	color: rgba(255, 255, 255, 0.55);
+	font-style: italic;
+}
+
+.quote-action {
+	margin-top: 2.5rem;
+}

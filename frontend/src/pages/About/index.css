@@ -1,0 +1,75 @@
+#page-about .intro {
+	background: var(--navy);
+	padding: 4rem 1.5rem 3rem;
+	text-align: center;
+}
+
+#page-about .intro .intro-inner {
+	max-width: 700px;
+	margin: 0 auto;
+}
+
+#page-about .intro .intro-inner .section-eyebrow {
+	font-size: 12px;
+	font-weight: 700;
+	color: var(--lime);
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	margin-bottom: 0.75rem;
+}
+
+#page-about .intro .intro-inner h1 {
+	font-size: clamp(1.8rem, 4vw, 2.8rem);
+	font-weight: 800;
+	color: #fff;
+	margin-bottom: 1rem;
+}
+
+#page-about .intro .intro-inner p {
+	font-size: 1rem;
+	color: rgba(255, 255, 255, 0.72);
+	line-height: 1.8;
+	max-width: 580px;
+	margin: 0 auto;
+}
+
+#page-about section#mission {
+	background: var(--bg);
+}
+
+#page-about section#mission .section-inner .mission-split .mission-img-box .mission-img-inner .line {
+	width: 50px;
+	height: 3px;
+	background: var(--lime);
+	margin: 1rem auto;
+	border-radius: 2px;
+}
+
+#page-about section#mission .section-inner .mission-split .mission-img-box .mission-img-inner p {
+	font-size: 14px;
+	opacity: 0.65;
+	line-height: 1.6;
+}
+
+#page-about section#core-values {
+	background: var(--surface);
+}
+
+#page-about section#core-values .section-inner .cards-grid {
+	margin-top: 2rem;
+}
+
+section#leadership {
+	background: var(--bg);
+}
+
+section#partners {
+	background: var(--surface);
+}
+
+section#partners .section-inner .partners-pills {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.85rem;
+	margin-top: 2rem;
+}

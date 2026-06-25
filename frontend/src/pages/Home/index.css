@@ -1,0 +1,44 @@
+section.section#what-we-do {
+	background: var(--bg);
+}
+
+section.section#what-we-do .section-inner .section-header {
+	text-align: center;
+	max-width: 600px;
+	margin: 0 auto 3rem;
+}
+
+section.section#what-we-do .section-inner .section-header h2 {
+	max-width: 100%;
+}
+
+section.section#what-we-do .section-inner .section-header p {
+	margin: 0 auto;
+}
+
+section.section#why-it-matters {
+	background: var(--surface);
+}
+
+section.section#why-it-matters .section-inner .section-header {
+	text-align: center;
+	margin-bottom: 2.5rem;
+}
+
+section.section#why-it-matters .section-inner .section-header .section-title {
+	max-width: 100%;
+	text-align: center;
+}
+
+section.section#why-it-matters .section-inner .cards-grid {
+	display: grid;
+	grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+	gap: 1.5rem;
+}
+
+section.section#why-it-matters .section-inner .cards-grid .card#1 {
+	background: linear-gradient(135deg, #0e2f5a, var(--navy));
+	border-radius: var(--radius);
+	padding: 2rem;
+	color: #fff;
+}
