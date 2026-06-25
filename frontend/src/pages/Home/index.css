@@ -35,10 +35,3 @@ section.section#why-it-matters .section-inner .cards-grid {
 	grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
 	gap: 1.5rem;
 }
-
-section.section#why-it-matters .section-inner .cards-grid .card#1 {
-	background: linear-gradient(135deg, #0e2f5a, var(--navy));
-	border-radius: var(--radius);
-	padding: 2rem;
-	color: #fff;
-}
