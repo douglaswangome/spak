@@ -49,3 +49,59 @@
 .form-success-btn:hover {
 	background: var(--surface2);
 }
+
+/*
+  Append these rules to your existing Contact/index.css.
+  They cover: error banner, disabled field state, spinner animation,
+  and the loading variant of the submit button.
+*/
+
+/* ── Error banner shown above the form on submission failure ── */
+.form-error-banner {
+	display: flex;
+	align-items: flex-start;
+	gap: 10px;
+	padding: 12px 16px;
+	margin-bottom: 20px;
+	background: #fff5f5;
+	border: 1px solid #fca5a5;
+	border-radius: 8px;
+	color: #b91c1c;
+	font-size: 14px;
+	line-height: 1.5;
+}
+
+.form-error-banner svg {
+	flex-shrink: 0;
+	margin-top: 1px; /* optical alignment with the first line of text */
+	color: #ef4444;
+}
+
+/* ── Disabled field appearance while the request is in-flight ── */
+.form-input:disabled {
+	opacity: 0.55;
+	cursor: not-allowed;
+	background: var(--surface, #f8f9fa);
+}
+
+/* ── Submit button loading state ── */
+.submit-btn:disabled {
+	opacity: 0.7;
+	cursor: not-allowed;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+}
+
+/* ── Spinner keyframe ── */
+@keyframes spin {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+.spin {
+	animation: spin 0.75s linear infinite;
+	display: inline-block;
+}

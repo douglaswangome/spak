@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://spak.or.ke/sitemap.xml
