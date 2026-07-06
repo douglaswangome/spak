@@ -1,7 +1,7 @@
 import '@/pages/About/index.css';
 import { Card } from '@/components/Card';
 import { coreValuesData, partnersData } from '@/components/Card/data.ts';
-import { teamData } from '@/components/TeamCard/data.ts';
+import { teamData } from '@/pages/About/data.ts';
 import { TeamCard } from '@/components/TeamCard';
 
 export function About() {
@@ -78,14 +78,7 @@ export function About() {
 						children's surgical safety in Kenya.</p>
 					<div className="team-grid">
 						{teamData.map((member) => (
-							<TeamCard
-								key={member.id}
-								avatarText={member.avatarText}
-								name={member.name}
-								role={member.role}
-								bio={member.bio}
-								avatarGradient={member.avatarGradient}
-							/>
+							<TeamCard key={member.id} {...member} />
 						))}
 					</div>
 				</div>
