@@ -732,6 +732,81 @@ nav {
 	line-height: 1.6
 }
 
+/* MARQUEE */
+.marquee {
+	width: 100%;
+	overflow: hidden;
+	margin-top: 2.5rem;
+	/* Fades the edges so logos don't appear to hard-cut at the container boundary */
+	mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+	-webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+.marquee-track {
+	display: flex;
+	align-items: center;
+	gap: 3.5rem;
+	width: max-content;
+	animation: marquee-scroll 28s linear infinite;
+}
+
+.marquee:hover .marquee-track {
+	animation-play-state: paused;
+}
+
+@keyframes marquee-scroll {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		/* -50% because the track holds two copies of the full list —
+		   sliding exactly halfway lines the second copy up perfectly
+		   with where the first copy started. */
+		transform: translateX(-50%);
+	}
+}
+
+.marquee-item {
+	flex-shrink: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 70px;
+}
+
+.marquee-logo {
+	max-height: 48px;
+	max-width: 160px;
+	width: auto;
+	height: auto;
+	object-fit: contain;
+	filter: grayscale(100%);
+	opacity: 0.75;
+	transition: all var(--transition);
+}
+
+.marquee-logo:hover {
+	filter: grayscale(0%);
+	opacity: 1;
+}
+
+.marquee-fallback-pill {
+	white-space: nowrap;
+	font-size: 13px;
+	padding: 0.5rem 1rem;
+}
+
+/* Respects users who've asked their OS/browser to reduce motion */
+@media (prefers-reduced-motion: reduce) {
+	.marquee-track {
+		animation: none;
+	}
+
+	.marquee {
+		overflow-x: auto;
+	}
+}
+
 /* GALLERY */
 .gallery-filters {
 	display: flex;

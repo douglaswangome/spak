@@ -1,8 +1,9 @@
 import '@/pages/About/index.css';
 import { Card } from '@/components/Card';
-import { coreValuesData, partnersData } from '@/components/Card/data.ts';
+import { coreValuesData } from '@/components/Card/data.ts';
 import { teamData } from '@/pages/About/data.ts';
 import { TeamCard } from '@/components/TeamCard';
+import { PartnersMarquee } from '@/components/PartnersMarquee';
 
 export function About() {
 	return (
@@ -90,22 +91,8 @@ export function About() {
 					<h2 className="section-title">Global Collaborators</h2>
 					<p className="section-body">SPAK stands on the shoulders of strong international partnerships that provide
 						mentorship, funding, and technical support.</p>
-					<div className={"partners-pills"}>
-						{partnersData.map((partner, index) => {
-							const colorClass = index % 2 === 0 ? 'pill-navy' : 'pill-lime';
-
-							return (
-								<span
-									key={partner} // Using the name as a unique key
-									className={`pill ${colorClass}`}
-									style={{ fontSize: '13px', padding: '0.5rem 1rem' }}
-								>
-								{partner}
-							</span>
-							);
-						})}
-					</div>
 				</div>
+				<PartnersMarquee/>
 			</section>
 		</div>
 	);
