@@ -7,22 +7,22 @@
 }
 
 :root {
-	--navy: #1B4B8A;
-	--navy-dark: #0e2f5a;
-	--navy-light: #2d6bc4;
-	--lime: #8DC63F;
-	--lime-dark: #6ba32e;
-	--lime-light: #b2e05a;
+	--navy: #1A5FCC;
+	--navy-dark: #0D3A85;
+	--navy-light: #4C8EEA;
+	--lime: #A6E22E;
+	--lime-dark: #7CB518;
+	--lime-light: #C6F168;
 	--white: #ffffff;
-	--bg: #f4f7fb;
-	--bg2: #e8eef8;
+	--bg: #f5f8fd;
+	--bg2: #e7f0ff;
 	--surface: #ffffff;
-	--surface2: #f0f4fa;
+	--surface2: #eef4ff;
 	--text: #1a2340;
 	--text2: #4a5568;
 	--text3: #718096;
 	--border: #d1dce8;
-	--shadow: 0 2px 12px rgba(27, 75, 138, 0.10);
+	--shadow: 0 2px 12px rgba(26, 95, 204, 0.14);
 	--radius: 12px;
 	--radius-sm: 8px;
 	--transition: 0.25s ease;
@@ -30,13 +30,13 @@
 
 [data-theme="dark"] {
 	--bg: #0d1526;
-	--bg2: #111d35;
-	--surface: #162040;
-	--surface2: #1e2d52;
+	--bg2: #13213f;
+	--surface: #16244a;
+	--surface2: #223262;
 	--text: #e8eef8;
 	--text2: #a8b8d0;
 	--text3: #6b7fa0;
-	--border: #2a3d62;
+	--border: #32456e;
 	--shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
 }
 
@@ -260,7 +260,7 @@ nav {
 
 /* HERO */
 .hero {
-	background: linear-gradient(135deg, #0e2f5a 0%, #1B4B8A 55%, #2a5e9e 100%);
+	background: linear-gradient(135deg, #0d3a85 0%, #1A5FCC 55%, #4C8EEA 100%);
 	min-height: 88vh;
 	display: flex;
 	align-items: center;
@@ -272,7 +272,7 @@ nav {
 	content: '';
 	position: absolute;
 	inset: 0;
-	background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Ccircle cx='30' cy='30' r='1.5' fill='%238DC63F' fill-opacity='0.12'/%3E%3C/g%3E%3C/svg%3E");
+	background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Ccircle cx='30' cy='30' r='1.5' fill='%23A6E22E' fill-opacity='0.16'/%3E%3C/g%3E%3C/svg%3E");
 	opacity: 0.6
 }
 
@@ -292,8 +292,8 @@ nav {
 	display: inline-flex;
 	align-items: center;
 	gap: 6px;
-	background: rgba(141, 198, 63, 0.18);
-	border: 1px solid rgba(141, 198, 63, 0.4);
+	background: rgba(166, 226, 46, 0.2);
+	border: 1px solid rgba(166, 226, 46, 0.45);
 	color: var(--lime-light);
 	padding: 0.35rem 0.9rem;
 	border-radius: 99px;
@@ -376,7 +376,7 @@ nav {
 	width: 300px;
 	height: 300px;
 	border-radius: 50%;
-	border: 3px solid rgba(141, 198, 63, 0.35);
+	border: 3px solid rgba(166, 226, 46, 0.4);
 	position: absolute;
 	top: 10px;
 	left: 10px;
@@ -588,7 +588,7 @@ nav {
 .mission-img-box {
 	border-radius: var(--radius);
 	overflow: hidden;
-	background: linear-gradient(135deg, var(--navy), #2d6bc4);
+	background: linear-gradient(135deg, var(--navy), var(--navy-light));
 	min-height: 380px;
 	display: flex;
 	align-items: center;
@@ -853,7 +853,7 @@ nav {
 
 .gallery-item:hover {
 	transform: scale(1.02);
-	box-shadow: 0 8px 24px rgba(27, 75, 138, 0.2)
+	box-shadow: 0 8px 24px rgba(26, 95, 204, 0.25)
 }
 
 .gallery-img {
@@ -868,15 +868,15 @@ nav {
 }
 
 .gallery-cat-navy {
-	background: linear-gradient(135deg, #0e2f5a, var(--navy))
+	background: linear-gradient(135deg, #0d3a85, var(--navy))
 }
 
 .gallery-cat-lime {
-	background: linear-gradient(135deg, #4a7a1a, var(--lime-dark))
+	background: linear-gradient(135deg, var(--lime), var(--lime-dark))
 }
 
 .gallery-cat-teal {
-	background: linear-gradient(135deg, #0e5a4a, #1a8a6a)
+	background: linear-gradient(135deg, #0b7f79, #0EA69F)
 }
 
 .gallery-cat-mix {
@@ -908,7 +908,7 @@ nav {
 	position: absolute;
 	top: 10px;
 	left: 10px;
-	background: rgba(27, 75, 138, 0.85);
+	background: rgba(26, 95, 204, 0.85);
 	color: #fff;
 	font-size: 11px;
 	font-weight: 700;
@@ -1282,22 +1282,22 @@ footer {
 }
 
 .pill-navy {
-	background: rgba(27, 75, 138, 0.12);
+	background: rgba(26, 95, 204, 0.12);
 	color: var(--navy)
 }
 
 [data-theme="dark"] .pill-navy {
-	background: rgba(27, 75, 138, 0.4);
-	color: #7bb3f0
+	background: rgba(26, 95, 204, 0.4);
+	color: #8fc0ff
 }
 
 .pill-lime {
-	background: rgba(141, 198, 63, 0.15);
+	background: rgba(166, 226, 46, 0.18);
 	color: var(--lime-dark)
 }
 
 [data-theme="dark"] .pill-lime {
-	background: rgba(141, 198, 63, 0.25);
+	background: rgba(166, 226, 46, 0.28);
 	color: var(--lime)
 }
 

@@ -1,5 +1,72 @@
+/* ============================================================
+   SPAK Home — brand accent palette (scoped to this page)
+   Swap these to your global tokens whenever you're ready —
+   they're isolated here so nothing else on the site shifts.
+   ============================================================ */
+#page-home {
+	--pop-teal: #0EA69F;
+	--pop-teal-dark: #0B7F79;
+	--pop-coral: #FF6F5E;
+	--pop-sun: #FFC145;
+	--pop-navy: #0B2545;
+}
+
+/* ---------- shared section accents ---------- */
+#page-home .section-eyebrow {
+	display: inline-flex;
+	align-items: center;
+	padding: 0.35rem 1rem;
+	border-radius: 999px;
+	background: linear-gradient(90deg, var(--pop-teal), var(--pop-coral));
+	color: #fff;
+	font-weight: 700;
+	font-size: 0.75rem;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	margin-bottom: 0.85rem;
+	box-shadow: 0 8px 20px -10px rgba(14, 166, 159, 0.6);
+}
+
+#page-home .section-title {
+	background: linear-gradient(90deg, var(--pop-navy), var(--pop-teal-dark));
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+}
+
 section.section#what-we-do {
 	background: var(--bg);
+	position: relative;
+	overflow: hidden;
+}
+
+section.section#what-we-do::before {
+	content: "";
+	position: absolute;
+	width: 320px;
+	height: 320px;
+	background: radial-gradient(circle, rgba(255, 193, 69, 0.18), transparent 70%);
+	top: -120px;
+	left: -100px;
+	border-radius: 50%;
+	pointer-events: none;
+}
+
+section.section#what-we-do::after {
+	content: "";
+	position: absolute;
+	width: 280px;
+	height: 280px;
+	background: radial-gradient(circle, rgba(14, 166, 159, 0.14), transparent 70%);
+	bottom: -100px;
+	right: -80px;
+	border-radius: 50%;
+	pointer-events: none;
+}
+
+section.section#what-we-do .section-inner {
+	position: relative;
+	z-index: 1;
 }
 
 section.section#what-we-do .section-inner .section-header {
@@ -16,8 +83,80 @@ section.section#what-we-do .section-inner .section-header p {
 	margin: 0 auto;
 }
 
+/* Real imagery strip — paediatric care in action */
+section.section#what-we-do .section-inner .what-we-do-media {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1.25rem;
+	max-width: 900px;
+	margin: 0 auto 3rem;
+}
+
+section.section#what-we-do .section-inner .what-we-do-media img {
+	width: 100%;
+	height: 220px;
+	object-fit: cover;
+	border-radius: 18px;
+	box-shadow: 0 18px 34px -16px rgba(14, 166, 159, 0.45);
+	transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+section.section#what-we-do .section-inner .what-we-do-media img:hover {
+	transform: translateY(-4px) scale(1.02);
+	box-shadow: 0 22px 40px -14px rgba(14, 166, 159, 0.55);
+}
+
+section.section#what-we-do .section-inner .cards-grid > * {
+	position: relative;
+	overflow: hidden;
+	border-radius: 16px;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+section.section#what-we-do .section-inner .cards-grid > *::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 4px;
+	background: linear-gradient(90deg, var(--pop-teal), var(--pop-coral));
+}
+
+section.section#what-we-do .section-inner .cards-grid > *:nth-child(3n + 2)::before {
+	background: linear-gradient(90deg, var(--pop-coral), var(--pop-sun));
+}
+
+section.section#what-we-do .section-inner .cards-grid > *:nth-child(3n + 3)::before {
+	background: linear-gradient(90deg, var(--pop-sun), var(--pop-teal));
+}
+
+section.section#what-we-do .section-inner .cards-grid > *:hover {
+	transform: translateY(-6px);
+	box-shadow: 0 20px 34px -18px rgba(14, 166, 159, 0.5);
+}
+
 section.section#why-it-matters {
 	background: var(--surface);
+	position: relative;
+	overflow: hidden;
+}
+
+section.section#why-it-matters::before {
+	content: "";
+	position: absolute;
+	width: 340px;
+	height: 340px;
+	background: radial-gradient(circle, rgba(255, 111, 94, 0.14), transparent 70%);
+	top: -110px;
+	right: -110px;
+	border-radius: 50%;
+	pointer-events: none;
+}
+
+section.section#why-it-matters .section-inner {
+	position: relative;
+	z-index: 1;
 }
 
 section.section#why-it-matters .section-inner .section-header {
@@ -34,4 +173,200 @@ section.section#why-it-matters .section-inner .cards-grid {
 	display: grid;
 	grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
 	gap: 1.5rem;
+}
+
+section.section#why-it-matters .section-inner .cards-grid > * {
+	position: relative;
+	overflow: hidden;
+	border-radius: 16px;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+section.section#why-it-matters .section-inner .cards-grid > *::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 4px;
+	background: linear-gradient(90deg, var(--pop-teal), var(--pop-coral));
+}
+
+section.section#why-it-matters .section-inner .cards-grid > *:nth-child(4n + 2)::before {
+	background: linear-gradient(90deg, var(--pop-coral), var(--pop-sun));
+}
+
+section.section#why-it-matters .section-inner .cards-grid > *:nth-child(4n + 3)::before {
+	background: linear-gradient(90deg, var(--pop-sun), var(--pop-teal));
+}
+
+section.section#why-it-matters .section-inner .cards-grid > *:nth-child(4n + 4)::before {
+	background: linear-gradient(90deg, var(--pop-teal), var(--pop-navy));
+}
+
+section.section#why-it-matters .section-inner .cards-grid > *:hover {
+	transform: translateY(-6px);
+	box-shadow: 0 20px 36px -16px rgba(11, 37, 69, 0.28);
+}
+
+/* ============================================================
+   New section — "In Pictures" gallery (Care, Comfort & Community)
+   ============================================================ */
+section.section#in-pictures {
+	background: linear-gradient(160deg, var(--pop-navy) 0%, #0d3b57 55%, var(--pop-teal-dark) 100%);
+	color: #fff;
+	position: relative;
+	overflow: hidden;
+}
+
+section.section#in-pictures::before {
+	content: "";
+	position: absolute;
+	width: 480px;
+	height: 480px;
+	background: radial-gradient(circle, rgba(255, 193, 69, 0.25), transparent 70%);
+	top: -140px;
+	right: -120px;
+	border-radius: 50%;
+	pointer-events: none;
+}
+
+section.section#in-pictures::after {
+	content: "";
+	position: absolute;
+	width: 360px;
+	height: 360px;
+	background: radial-gradient(circle, rgba(255, 111, 94, 0.2), transparent 70%);
+	bottom: -140px;
+	left: -100px;
+	border-radius: 50%;
+	pointer-events: none;
+}
+
+section.section#in-pictures .section-inner {
+	position: relative;
+	z-index: 1;
+}
+
+section.section#in-pictures .section-inner .section-header {
+	text-align: center;
+	max-width: 640px;
+	margin: 0 auto 3rem;
+}
+
+section.section#in-pictures .section-title {
+	background: linear-gradient(90deg, #ffffff, var(--pop-sun));
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+}
+
+section.section#in-pictures .section-body {
+	color: rgba(255, 255, 255, 0.85);
+	margin: 0 auto;
+}
+
+#page-home .gallery-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-auto-rows: 220px;
+	gap: 1.25rem;
+}
+
+#page-home .gallery-item-wide {
+	grid-column: span 2;
+}
+
+#page-home .gallery-item {
+	/* Reset properties the site-wide .gallery-item (used by the separate
+	   Gallery page) would otherwise leak in here, since it shares this
+	   class name — aspect-ratio in particular was forcing the wide tile
+	   to double its height and pushing the caption out of place. */
+	aspect-ratio: auto;
+	background: none;
+	border: none;
+	cursor: default;
+	position: relative;
+	border-radius: 18px;
+	overflow: hidden;
+	box-shadow: 0 22px 40px -20px rgba(0, 0, 0, 0.55);
+	margin: 0;
+	animation: gallery-pop-in 0.6s ease both;
+}
+
+#page-home .gallery-item:nth-child(2) { animation-delay: 0.08s; }
+#page-home .gallery-item:nth-child(3) { animation-delay: 0.16s; }
+#page-home .gallery-item:nth-child(4) { animation-delay: 0.24s; }
+
+#page-home .gallery-item img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+	transition: transform 0.5s ease;
+}
+
+#page-home .gallery-item:hover img {
+	transform: scale(1.08);
+}
+
+#page-home .gallery-item figcaption {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	padding: 1rem 1.1rem;
+	font-size: 0.85rem;
+	font-weight: 600;
+	line-height: 1.3;
+	background: linear-gradient(0deg, rgba(11, 37, 69, 0.92), transparent);
+	color: #fff;
+}
+
+@keyframes gallery-pop-in {
+	from {
+		opacity: 0;
+		transform: translateY(16px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	#page-home .gallery-item {
+		animation: none;
+	}
+	#page-home .gallery-item img,
+	section.section#what-we-do .section-inner .what-we-do-media img,
+	section.section#what-we-do .section-inner .cards-grid > *,
+	section.section#why-it-matters .section-inner .cards-grid > * {
+		transition: none;
+	}
+}
+
+@media (max-width: 860px) {
+	#page-home .gallery-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	#page-home .gallery-item-wide {
+		grid-column: span 2;
+	}
+}
+
+@media (max-width: 640px) {
+	section.section#what-we-do .section-inner .what-we-do-media {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 520px) {
+	#page-home .gallery-grid {
+		grid-template-columns: 1fr;
+		grid-auto-rows: 200px;
+	}
+	#page-home .gallery-item-wide {
+		grid-column: span 1;
+	}
 }

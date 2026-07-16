@@ -24,11 +24,13 @@ export function About() {
 				<div className="section-inner">
 					<div className="mission-split">
 						<div className="mission-img-box">
-							<div className="mission-img-inner">
-								<div className="mission-quote">"In Safe Hands"</div>
-								<div className={"line"}></div>
-								<p>Our tagline is our promise — to every child,
-									every family, every county in Kenya.</p>
+							<div className="mission-photo">
+								<div className="mission-img-inner">
+									<div className="mission-quote">"In Safe Hands"</div>
+									<div className={"line"}></div>
+									<p>Our tagline is our promise — to every child,
+										every family, every county in Kenya.</p>
+								</div>
 							</div>
 						</div>
 						<div>
@@ -75,8 +77,17 @@ export function About() {
 				<div className="section-inner">
 					<div className="section-eyebrow">Our Leadership</div>
 					<h2 className="section-title">Meet the Team</h2>
-					<p className="section-body">SPAK is led by dedicated paediatric anaesthesiologists committed to transforming
-						children's surgical safety in Kenya.</p>
+					<div className="leadership-intro">
+						<p className="section-body">SPAK is led by dedicated paediatric anaesthesiologists committed to transforming
+							children's surgical safety in Kenya.</p>
+						<div className="leadership-photo">
+							<img
+								src="https://images.unsplash.com/photo-1758206523711-f20bb01033a5?fm=jpg&q=80&w=1200&auto=format&fit=crop"
+								alt="Anaesthesia team caring for a patient in the operating theatre"
+								loading="lazy"
+							/>
+						</div>
+					</div>
 					<div className="team-grid">
 						{teamData.map((member) => (
 							<TeamCard key={member.id} {...member} />

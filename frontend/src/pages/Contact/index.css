@@ -1,21 +1,68 @@
+#page-contact {
+	/* Bright accent palette (pop variants matching the home page's energy) */
+	--contact-teal: #0EA69F;
+	--contact-teal-dark: #0B7F79;
+	--contact-coral: #FF6F5E;
+	--contact-sun: #FFC145;
+}
+
 .contact-hero {
-	background: var(--navy);
+	position: relative;
+	overflow: hidden;
+	background:
+		linear-gradient(150deg, rgba(11, 37, 69, 0.93), rgba(11, 127, 121, 0.88)),
+		url('https://images.unsplash.com/photo-1758691463331-2ac00e6f676f?fm=jpg&q=80&w=1600&auto=format&fit=crop')
+		center 25% / cover;
 	padding: 4rem 1.5rem 3rem;
 	text-align: center;
 }
 
+.contact-hero::before,
+.contact-hero::after {
+	content: '';
+	position: absolute;
+	border-radius: 50%;
+	filter: blur(70px);
+	opacity: 0.4;
+	pointer-events: none;
+	z-index: 0;
+}
+
+.contact-hero::before {
+	top: -60px;
+	left: -50px;
+	width: 220px;
+	height: 220px;
+	background: var(--contact-sun);
+}
+
+.contact-hero::after {
+	bottom: -80px;
+	right: -40px;
+	width: 250px;
+	height: 250px;
+	background: var(--contact-coral);
+}
+
 .contact-hero-inner {
+	position: relative;
+	z-index: 1;
 	max-width: 700px;
 	margin: 0 auto;
 }
 
 .contact-eyebrow {
+	display: inline-block;
 	font-size: 12px;
 	font-weight: 700;
-	color: var(--lime);
+	color: var(--contact-sun);
 	text-transform: uppercase;
 	letter-spacing: 1.5px;
 	margin-bottom: 0.75rem;
+	padding: 0.3rem 0.9rem;
+	border: 1px solid rgba(255, 193, 69, 0.5);
+	border-radius: 999px;
+	background: rgba(255, 193, 69, 0.08);
 }
 
 .contact-title {
@@ -23,14 +70,135 @@
 	font-weight: 800;
 	color: #fff;
 	margin-bottom: 1rem;
+	text-shadow: 0 2px 20px rgba(0, 0, 0, 0.25);
 }
 
 .contact-desc {
 	font-size: 1rem;
-	color: rgba(255, 255, 255, 0.72);
+	color: rgba(255, 255, 255, 0.85);
 	line-height: 1.8;
 	max-width: 520px;
 	margin: 0 auto;
+}
+
+/* ── Contact detail rows: colored icon chips cycling through the palette ── */
+#page-contact .contact-detail {
+	display: flex;
+	align-items: flex-start;
+	gap: 0.9rem;
+}
+
+#page-contact .contact-icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+	width: 42px;
+	height: 42px;
+	border-radius: 12px;
+	color: #fff;
+	background: linear-gradient(135deg, var(--contact-teal), var(--contact-teal-dark));
+	box-shadow: 0 8px 18px -8px rgba(14, 166, 159, 0.55);
+}
+
+#page-contact .contact-detail:nth-of-type(2) .contact-icon {
+	background: linear-gradient(135deg, var(--contact-coral), #e0503f);
+	box-shadow: 0 8px 18px -8px rgba(255, 111, 94, 0.55);
+}
+
+#page-contact .contact-detail:nth-of-type(3) .contact-icon {
+	background: linear-gradient(135deg, var(--contact-sun), #e0a415);
+	box-shadow: 0 8px 18px -8px rgba(255, 193, 69, 0.55);
+}
+
+/* ── Map placeholder gets a friendlier, on-brand dashed frame ── */
+#page-contact .map-placeholder {
+	border: 1.5px dashed var(--contact-teal);
+	border-radius: 14px;
+	background: rgba(14, 166, 159, 0.06);
+}
+
+/* ── Supporting photo panel under the contact info ── */
+#page-contact .contact-photo {
+	position: relative;
+	margin-top: 1.5rem;
+	border-radius: 18px;
+	overflow: hidden;
+	box-shadow: 0 20px 45px -16px rgba(11, 37, 69, 0.35);
+}
+
+#page-contact .contact-photo img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	min-height: 200px;
+	object-fit: cover;
+}
+
+#page-contact .contact-photo::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(160deg, rgba(14, 166, 159, 0.12), rgba(11, 37, 69, 0.3));
+}
+
+/* ── Social buttons: brighter gradient chips with a subtle hover lift ── */
+#page-contact .social-btn {
+	background: linear-gradient(135deg, var(--contact-teal), var(--contact-teal-dark));
+	color: #fff;
+	box-shadow: 0 8px 18px -8px rgba(14, 166, 159, 0.5);
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#page-contact .social-btn:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 12px 24px -10px rgba(14, 166, 159, 0.6);
+}
+
+#page-contact .social-btn:nth-of-type(2) {
+	background: linear-gradient(135deg, var(--contact-coral), #e0503f);
+	box-shadow: 0 8px 18px -8px rgba(255, 111, 94, 0.5);
+}
+
+#page-contact .social-btn:nth-of-type(3) {
+	background: linear-gradient(135deg, var(--contact-sun), #e0a415);
+	box-shadow: 0 8px 18px -8px rgba(255, 193, 69, 0.5);
+}
+
+/* ── Submit button: give the primary CTA some pop ── */
+#page-contact .submit-btn:not(:disabled) {
+	background: linear-gradient(135deg, var(--contact-teal), var(--contact-teal-dark));
+	box-shadow: 0 10px 24px -10px rgba(14, 166, 159, 0.55);
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#page-contact .submit-btn:not(:disabled):hover {
+	transform: translateY(-2px);
+	box-shadow: 0 14px 30px -10px rgba(14, 166, 159, 0.65);
+}
+
+/* ── FAQ accordion: colored accent and smoother hover/open states ── */
+#page-contact .faq-item {
+	border-left: 3px solid transparent;
+	transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+#page-contact .faq-item:hover {
+	border-left-color: var(--contact-sun);
+}
+
+#page-contact .faq-item.open {
+	border-left-color: var(--contact-teal);
+	background: rgba(14, 166, 159, 0.05);
+}
+
+#page-contact .faq-chevron {
+	color: var(--contact-teal);
+	transition: transform 0.2s ease;
+}
+
+#page-contact .faq-item.open .faq-chevron {
+	transform: rotate(180deg);
 }
 
 .form-success-btn {

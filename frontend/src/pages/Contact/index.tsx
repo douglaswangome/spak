@@ -180,6 +180,14 @@ export function Contact() {
 									<LinkedinLogoIcon size={20} weight="fill"/>
 								</a>
 							</div>
+
+							<div className="contact-photo">
+								<img
+									src="https://images.unsplash.com/photo-1758691463331-2ac00e6f676f?fm=jpg&q=80&w=1200&auto=format&fit=crop"
+									alt="A paediatrician talking with a young patient and their parent"
+									loading="lazy"
+								/>
+							</div>
 						</div>
 
 						{/* Right Side: Form / Feedback */}
@@ -307,7 +315,7 @@ export function Contact() {
 								{submitState === 'success' && (
 									<div className="form-success show" id="form-success">
 										<div className="form-success-icon">
-											<CheckCircleIcon size={64} weight="fill" color="var(--lime)"/>
+											<CheckCircleIcon size={64} weight="fill" color="var(--contact-teal)"/>
 										</div>
 										<h4>Message Sent!</h4>
 										<p>

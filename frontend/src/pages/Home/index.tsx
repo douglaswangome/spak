@@ -65,6 +65,18 @@ export function Home() {
 						<p className="section-body">From short courses in county hospitals to national
 							research, SPAK works on every level to keep children safe.</p>
 					</div>
+					<div className="what-we-do-media">
+						<img
+							src="https://images.unsplash.com/photo-1640876777012-bdb00a6323e2?auto=format&fit=crop&w=800&q=80"
+							alt="Surgical team preparing for a paediatric procedure"
+							loading="lazy"
+						/>
+						<img
+							src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=800&q=80"
+							alt="Stethoscope and paediatric monitoring equipment"
+							loading="lazy"
+						/>
+					</div>
 					<div className="cards-grid">
 						{initiativesData.map((initiative) => (
 							<Card
@@ -96,6 +108,52 @@ export function Home() {
 								statColor={item.statColor}
 							/>
 						))}
+					</div>
+				</div>
+			</section>
+
+			<section className="section" id={"in-pictures"}>
+				<div className="section-inner">
+					<div className="section-header">
+						<div className="section-eyebrow">In Pictures</div>
+						<h2 className="section-title">Care, Comfort &amp; Community</h2>
+						<p className="section-body">A glimpse into the moments SPAK works every day to
+							protect — from a newborn's first hours to the classrooms of tomorrow's
+							healthcare heroes.</p>
+					</div>
+					<div className="gallery-grid">
+						<figure className="gallery-item gallery-item-wide">
+							<img
+								src="https://images.unsplash.com/photo-1759802147238-5c18d1463bd4?auto=format&fit=crop&w=1200&q=80"
+								alt="Newborn baby cared for by medical staff moments after birth"
+								loading="lazy"
+							/>
+							<figcaption>Every child's first hours deserve the safest hands</figcaption>
+						</figure>
+						<figure className="gallery-item">
+							<img
+								src="https://images.unsplash.com/photo-1640876777012-bdb00a6323e2?auto=format&fit=crop&w=800&q=80"
+								alt="Surgical team preparing for a paediatric procedure"
+								loading="lazy"
+							/>
+							<figcaption>Trained teams, ready in the operating theatre</figcaption>
+						</figure>
+						<figure className="gallery-item">
+							<img
+								src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=800&q=80"
+								alt="Stethoscope and paediatric monitoring equipment"
+								loading="lazy"
+							/>
+							<figcaption>The right equipment, in the right hands</figcaption>
+						</figure>
+						<figure className="gallery-item">
+							<img
+								src="https://images.unsplash.com/photo-1567057420215-0afa9aa9253a?auto=format&fit=crop&w=800&q=80"
+								alt="Children in a classroom, part of SPAK's community reach across East Africa"
+								loading="lazy"
+							/>
+							<figcaption>Advocacy that reaches classrooms and communities</figcaption>
+						</figure>
 					</div>
 				</div>
 			</section>
