@@ -1,5 +1,6 @@
 import '@/pages/Gallery/index.css';
-import { useEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import gsap from 'gsap';
 import { galleryItems } from '@/pages/Gallery/data.ts';
 import { CaretLeftIcon, CaretRightIcon, XIcon } from '@phosphor-icons/react';
 
@@ -10,6 +11,8 @@ function isPhoto(img: string) {
 }
 
 export function Gallery() {
+	const rootRef = useRef<HTMLDivElement>(null);
+	const gridRef = useRef<HTMLDivElement>(null);
 	const [activeFilter, setActiveFilter] = useState('all');
 	const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
@@ -17,8 +20,6 @@ export function Gallery() {
 		? galleryItems
 		: galleryItems.filter(item => item.cat === activeFilter);
 
-	// Changing filters while the lightbox is open could point it at an
-	// index that no longer exists in the new list, so just close it.
 	useEffect(() => {
 		setLightboxIndex(null);
 	}, [activeFilter]);
@@ -35,8 +36,6 @@ export function Gallery() {
 		setLightboxIndex((lightboxIndex + 1) % filteredItems.length);
 	};
 
-	// Esc to close, arrow keys to navigate — only listens while the
-	// lightbox is actually open, and locks background scroll meanwhile.
 	useEffect(() => {
 		if (lightboxIndex === null) return;
 
@@ -54,13 +53,54 @@ export function Gallery() {
 			document.removeEventListener('keydown', handleKeyDown);
 			document.body.style.overflow = previousOverflow;
 		};
-		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [lightboxIndex, filteredItems.length]);
+
+	useLayoutEffect(() => {
+		const root = rootRef.current;
+		if (!root) return;
+
+		const ctx = gsap.context(() => {
+			const mm = gsap.matchMedia();
+
+			mm.add('(prefers-reduced-motion: no-preference)', () => {
+				gsap.timeline({ defaults: { ease: 'power3.out' } })
+				.from('.gallery-eyebrow', { opacity: 0, y: -14, duration: 0.45, clearProps: 'opacity,transform' })
+				.from('.gallery-title', { opacity: 0, y: 28, duration: 0.6, clearProps: 'opacity,transform' }, '-=0.25')
+				.from('.gallery-desc', { opacity: 0, y: 18, duration: 0.5, clearProps: 'opacity,transform' }, '-=0.3')
+				.from('.filter-btn', { opacity: 0, y: 14, duration: 0.4, stagger: 0.06, clearProps: 'opacity,transform' }, '-=0.2');
+			});
+		}, root);
+
+		return () => ctx.revert();
+	}, []);
+
+	useLayoutEffect(() => {
+		const grid = gridRef.current;
+		if (!grid) return;
+
+		const ctx = gsap.context(() => {
+			const mm = gsap.matchMedia();
+
+			mm.add('(prefers-reduced-motion: no-preference)', () => {
+				gsap.from('.gallery-item', {
+					opacity: 0,
+					y: 28,
+					scale: 0.96,
+					duration: 0.5,
+					stagger: 0.06,
+					ease: 'power3.out',
+					clearProps: 'opacity,transform',
+				});
+			});
+		}, grid);
+
+		return () => ctx.revert();
+	}, [activeFilter]);
 
 	const activeItem = lightboxIndex !== null ? filteredItems[lightboxIndex] : null;
 
 	return (
-		<div id="page-gallery" className="page active">
+		<div id="page-gallery" className="page active" ref={rootRef}>
 			<div className="gallery-hero">
 				<div className="gallery-hero-inner">
 					<div className="gallery-eyebrow">Gallery</div>
@@ -84,7 +124,7 @@ export function Gallery() {
 						))}
 					</div>
 
-					<div className="gallery-grid">
+					<div className="gallery-grid" ref={gridRef}>
 						{filteredItems.length > 0 ? (
 							filteredItems.map((item, index) => (
 								<div

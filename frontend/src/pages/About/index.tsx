@@ -1,13 +1,216 @@
 import '@/pages/About/index.css';
+import { useLayoutEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Card } from '@/components/Card';
 import { coreValuesData } from '@/components/Card/data.ts';
 import { teamData } from '@/pages/About/data.ts';
 import { TeamCard } from '@/components/TeamCard';
 import { PartnersMarquee } from '@/components/PartnersMarquee';
 
+gsap.registerPlugin(ScrollTrigger);
+
+function findScrollableAncestor(el: HTMLElement | null): HTMLElement | null {
+	let node = el?.parentElement ?? null;
+	while (node && node !== document.body) {
+		const style = getComputedStyle(node);
+		const overflowY = style.overflowY;
+		const isScrollable =
+			(overflowY === 'auto' || overflowY === 'scroll' || overflowY === 'overlay') &&
+			node.scrollHeight > node.clientHeight;
+		if (isScrollable) return node;
+		node = node.parentElement;
+	}
+	return null;
+}
+
 export function About() {
+	const rootRef = useRef<HTMLDivElement>(null);
+
+	useLayoutEffect(() => {
+		const root = rootRef.current;
+		if (!root) return;
+
+		const scrollContainer = findScrollableAncestor(root);
+
+		const ctx = gsap.context(() => {
+			const mm = gsap.matchMedia();
+
+			if (scrollContainer) {
+				ScrollTrigger.defaults({ scroller: scrollContainer });
+			}
+
+			mm.add('(prefers-reduced-motion: no-preference)', () => {
+				gsap.timeline({ defaults: { ease: 'power3.out' } })
+				.from('.intro-inner .section-eyebrow', { opacity: 0, y: -14, duration: 0.45, clearProps: 'opacity,transform' })
+				.from('.intro-inner h1', { opacity: 0, y: 28, duration: 0.65, clearProps: 'opacity,transform' }, '-=0.25')
+				.from('.intro-inner p', { opacity: 0, y: 18, duration: 0.55, clearProps: 'opacity,transform' }, '-=0.35');
+
+				gsap.from('#mission .mission-img-box', {
+					opacity: 0,
+					x: -40,
+					duration: 0.8,
+					ease: 'power3.out',
+					clearProps: 'opacity,transform',
+					scrollTrigger: {
+						trigger: '#mission .mission-split',
+						start: 'top 80%',
+						once: true,
+					},
+				});
+
+				gsap.from('#mission .mission-split > div:last-child > *', {
+					opacity: 0,
+					x: 40,
+					duration: 0.7,
+					stagger: 0.1,
+					ease: 'power3.out',
+					clearProps: 'opacity,transform',
+					scrollTrigger: {
+						trigger: '#mission .mission-split',
+						start: 'top 80%',
+						once: true,
+					},
+				});
+
+				gsap.from('#core-values .section-eyebrow, #core-values .section-title', {
+					opacity: 0,
+					y: 30,
+					duration: 0.7,
+					ease: 'power3.out',
+					clearProps: 'opacity,transform',
+					scrollTrigger: {
+						trigger: '#core-values .section-inner',
+						start: 'top 85%',
+						once: true,
+					},
+				});
+
+				gsap.from('#core-values .cards-grid > *', {
+					opacity: 0,
+					y: 36,
+					duration: 0.6,
+					stagger: 0.12,
+					ease: 'power3.out',
+					clearProps: 'opacity,transform',
+					scrollTrigger: {
+						trigger: '#core-values .cards-grid',
+						start: 'top 85%',
+						once: true,
+					},
+				});
+
+				gsap.from('#leadership .section-eyebrow, #leadership .section-title', {
+					opacity: 0,
+					y: 30,
+					duration: 0.7,
+					ease: 'power3.out',
+					clearProps: 'opacity,transform',
+					scrollTrigger: {
+						trigger: '#leadership .section-inner',
+						start: 'top 85%',
+						once: true,
+					},
+				});
+
+				gsap.from('#leadership .leadership-intro .section-body', {
+					opacity: 0,
+					y: 24,
+					duration: 0.7,
+					ease: 'power3.out',
+					clearProps: 'opacity,transform',
+					scrollTrigger: {
+						trigger: '#leadership .leadership-intro',
+						start: 'top 85%',
+						once: true,
+					},
+				});
+
+				gsap.from('#leadership .leadership-photo', {
+					opacity: 0,
+					scale: 0.96,
+					duration: 0.8,
+					ease: 'power3.out',
+					clearProps: 'opacity,transform',
+					scrollTrigger: {
+						trigger: '#leadership .leadership-intro',
+						start: 'top 85%',
+						once: true,
+					},
+				});
+
+				gsap.from('#leadership .team-grid > *', {
+					opacity: 0,
+					y: 36,
+					duration: 0.6,
+					stagger: 0.1,
+					ease: 'power3.out',
+					clearProps: 'opacity,transform',
+					scrollTrigger: {
+						trigger: '#leadership .team-grid',
+						start: 'top 85%',
+						once: true,
+					},
+				});
+
+				gsap.from('#partners .section-inner > *', {
+					opacity: 0,
+					y: 30,
+					duration: 0.7,
+					stagger: 0.1,
+					ease: 'power3.out',
+					clearProps: 'opacity,transform',
+					scrollTrigger: {
+						trigger: '#partners .section-inner',
+						start: 'top 85%',
+						once: true,
+					},
+				});
+
+				gsap.from('#partners > *:last-child', {
+					opacity: 0,
+					y: 20,
+					duration: 0.8,
+					ease: 'power3.out',
+					clearProps: 'opacity,transform',
+					scrollTrigger: {
+						trigger: '#partners',
+						start: 'top 80%',
+						once: true,
+					},
+				});
+			});
+		}, root);
+
+		const images = Array.from(root.querySelectorAll('img'));
+		let pending = images.length;
+		const settle = () => {
+			pending -= 1;
+			if (pending <= 0) ScrollTrigger.refresh();
+		};
+		if (images.length === 0) {
+			ScrollTrigger.refresh();
+		} else {
+			images.forEach((img) => {
+				if (img.complete) {
+					settle();
+				} else {
+					img.addEventListener('load', settle, { once: true });
+					img.addEventListener('error', settle, { once: true });
+				}
+			});
+		}
+
+		return () => {
+			ctx.revert();
+			if (scrollContainer) {
+				ScrollTrigger.defaults({ scroller: window });
+			}
+		};
+	}, []);
+
 	return (
-		<div id="page-about" className="page active">
+		<div id="page-about" className="page active" ref={rootRef}>
 			<div className={"intro"}>
 				<div className={"intro-inner"}>
 					<div className={"section-eyebrow"}>

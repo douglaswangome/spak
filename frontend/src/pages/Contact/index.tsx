@@ -1,5 +1,7 @@
 import '@/pages/Contact/index.css';
-import { type SyntheticEvent, useState } from 'react';
+import { type SyntheticEvent, useLayoutEffect, useRef, useState } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
 	CaretDownIcon,
 	CheckCircleIcon,
@@ -13,23 +15,39 @@ import {
 	XLogoIcon
 } from '@phosphor-icons/react';
 
+gsap.registerPlugin(ScrollTrigger);
+
 const FORMBRICKS_ENV_ID = import.meta.env.VITE_FORMBRICKS_ENV_ID;
 const FORMBRICKS_SURVEY_ID = import.meta.env.VITE_FORMBRICKS_SURVEY_ID;
 
-// The field IDs below must match the IDs Formbricks assigns to each question
 const FIELD_IDS = {
-	firstName: 'tuktvw0h1dpir3rs0kullq39', // 'FORMBRICKS_FIELD_ID_FIRST_NAME',
-	lastName: 'ayn7fijwqlp44e1fj1m44c61', // 'FORMBRICKS_FIELD_ID_LAST_NAME',
-	email: 'y7tuj3degrax190d97fkbmq1', // 'FORMBRICKS_FIELD_ID_EMAIL',
-	organisation: 'wwzslv27ahmosap4jnjnid6h', // 'FORMBRICKS_FIELD_ID_ORGANISATION',
-	subject: 'wx6lxv5iu5juz2kr5fa5xixr', // 'FORMBRICKS_FIELD_ID_SUBJECT',
-	message: 'p5axyhj2tjqi0w72t5n6k7bx', // 'FORMBRICKS_FIELD_ID_MESSAGE',
+	firstName: 'tuktvw0h1dpir3rs0kullq39',
+	lastName: 'ayn7fijwqlp44e1fj1m44c61',
+	email: 'y7tuj3degrax190d97fkbmq1',
+	organisation: 'wwzslv27ahmosap4jnjnid6h',
+	subject: 'wx6lxv5iu5juz2kr5fa5xixr',
+	message: 'p5axyhj2tjqi0w72t5n6k7bx',
 } as const;
-
 
 type SubmitState = 'idle' | 'loading' | 'success' | 'error';
 
+function findScrollableAncestor(el: HTMLElement | null): HTMLElement | null {
+	let node = el?.parentElement ?? null;
+	while (node && node !== document.body) {
+		const style = getComputedStyle(node);
+		const overflowY = style.overflowY;
+		const isScrollable =
+			(overflowY === 'auto' || overflowY === 'scroll' || overflowY === 'overlay') &&
+			node.scrollHeight > node.clientHeight;
+		if (isScrollable) return node;
+		node = node.parentElement;
+	}
+	return null;
+}
+
 export function Contact() {
+	const rootRef = useRef<HTMLDivElement>(null);
+	const successRef = useRef<HTMLDivElement>(null);
 	const [submitState, setSubmitState] = useState<SubmitState>('idle');
 	const [errorMessage, setErrorMessage] = useState<string>('');
 	const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -37,14 +55,11 @@ export function Contact() {
 	async function handleSubmit(e: SyntheticEvent<HTMLFormElement>) {
 		e.preventDefault();
 
-		// Guard: don't allow a second submission while one is in flight.
 		if (submitState === 'loading') return;
 
 		setSubmitState('loading');
 		setErrorMessage('');
 
-		// FormData reads every named input/select/textarea from the form element
-		// without us having to wire up controlled state for each field.
 		const form = e.currentTarget;
 		const fd = new FormData(form);
 
@@ -72,7 +87,6 @@ export function Contact() {
 			);
 
 			if (!res.ok) {
-				// Formbricks returns a JSON body with a "message" field on errors.
 				const body = await res.json().catch(() => ({}));
 				throw new Error(
 					(body as { message?: string }).message ??
@@ -100,10 +114,116 @@ export function Contact() {
 		setOpenFaq(openFaq === index ? null : index);
 	}
 
-	return (
-		<div id="page-contact" className="page active">
+	useLayoutEffect(() => {
+		const root = rootRef.current;
+		if (!root) return;
 
-			{/* --- HERO SECTION --- */}
+		const scrollContainer = findScrollableAncestor(root);
+
+		const ctx = gsap.context(() => {
+			const mm = gsap.matchMedia();
+
+			if (scrollContainer) {
+				ScrollTrigger.defaults({ scroller: scrollContainer });
+			}
+
+			mm.add('(prefers-reduced-motion: no-preference)', () => {
+				gsap.timeline({ defaults: { ease: 'power3.out' } })
+				.from('.contact-eyebrow', { opacity: 0, y: -14, duration: 0.45, clearProps: 'opacity,transform' })
+				.from('.contact-title', { opacity: 0, y: 28, duration: 0.6, clearProps: 'opacity,transform' }, '-=0.25')
+				.from('.contact-desc', { opacity: 0, y: 18, duration: 0.5, clearProps: 'opacity,transform' }, '-=0.3');
+
+				gsap.from('.contact-info > *', {
+					opacity: 0,
+					y: 30,
+					duration: 0.6,
+					stagger: 0.08,
+					ease: 'power3.out',
+					clearProps: 'opacity,transform',
+					scrollTrigger: {
+						trigger: '.contact-info',
+						start: 'top 80%',
+						once: true,
+					},
+				});
+
+				gsap.from('.contact-form-card', {
+					opacity: 0,
+					y: 30,
+					scale: 0.98,
+					duration: 0.7,
+					ease: 'power3.out',
+					clearProps: 'opacity,transform',
+					scrollTrigger: {
+						trigger: '.contact-form-card',
+						start: 'top 80%',
+						once: true,
+					},
+				});
+
+				gsap.from('.section-eyebrow, .section-title', {
+					opacity: 0,
+					y: 30,
+					duration: 0.7,
+					ease: 'power3.out',
+					clearProps: 'opacity,transform',
+					scrollTrigger: {
+						trigger: '.faq-list',
+						start: 'top 85%',
+						once: true,
+					},
+				});
+
+				gsap.from('.faq-item', {
+					opacity: 0,
+					y: 24,
+					duration: 0.5,
+					stagger: 0.08,
+					ease: 'power3.out',
+					clearProps: 'opacity,transform',
+					scrollTrigger: {
+						trigger: '.faq-list',
+						start: 'top 85%',
+						once: true,
+					},
+				});
+			});
+		}, root);
+
+		return () => {
+			ctx.revert();
+			if (scrollContainer) {
+				ScrollTrigger.defaults({ scroller: window });
+			}
+		};
+	}, []);
+
+	useLayoutEffect(() => {
+		if (submitState !== 'success') return;
+		const el = successRef.current;
+		if (!el) return;
+
+		const ctx = gsap.context(() => {
+			const mm = gsap.matchMedia();
+
+			mm.add('(prefers-reduced-motion: no-preference)', () => {
+				gsap.from(el, {
+					opacity: 0,
+					y: 16,
+					scale: 0.97,
+					duration: 0.5,
+					ease: 'power3.out',
+					clearProps: 'opacity,transform',
+				});
+			});
+		}, el);
+
+		return () => ctx.revert();
+	}, [submitState]);
+
+	return (
+		<div id="page-contact" className="page active" ref={rootRef}>
+
 			<div className="contact-hero">
 				<div className="contact-hero-inner">
 					<div className="contact-eyebrow">Get in Touch</div>
@@ -115,12 +235,10 @@ export function Contact() {
 				</div>
 			</div>
 
-			{/* --- CONTACT INFO & FORM SECTION --- */}
 			<section className="section" style={{ background: 'var(--bg)' }}>
 				<div className="section-inner">
 					<div className="contact-wrap">
 
-						{/* Left Side: Info */}
 						<div className="contact-info">
 							<h3>We'd Love to Hear From You</h3>
 							<p>
@@ -190,16 +308,13 @@ export function Contact() {
 							</div>
 						</div>
 
-						{/* Right Side: Form / Feedback */}
 						<div>
 							<div className="contact-form-card">
 
-								{/* ── IDLE / ERROR: show the form ── */}
 								{(submitState === 'idle' || submitState === 'loading' || submitState === 'error') && (
 									<>
 										<h3>Send Us a Message</h3>
 
-										{/* Error banner — only visible after a failed submission */}
 										{submitState === 'error' && (
 											<div className="form-error-banner" role="alert">
 												<WarningCircleIcon size={20} weight="fill"/>
@@ -207,10 +322,6 @@ export function Contact() {
 											</div>
 										)}
 
-										{/*
-											All inputs use the `name` attribute so FormData can pick
-											them up in handleSubmit without controlled state.
-										*/}
 										<form id="contact-form" onSubmit={handleSubmit} noValidate>
 											<div className="form-row">
 												<div className="form-group">
@@ -311,9 +422,8 @@ export function Contact() {
 									</>
 								)}
 
-								{/* ── SUCCESS: confirmation screen ── */}
 								{submitState === 'success' && (
-									<div className="form-success show" id="form-success">
+									<div className="form-success show" id="form-success" ref={successRef}>
 										<div className="form-success-icon">
 											<CheckCircleIcon size={64} weight="fill" color="var(--contact-teal)"/>
 										</div>
@@ -333,7 +443,6 @@ export function Contact() {
 				</div>
 			</section>
 
-			{/* --- FAQ SECTION --- */}
 			<section className="section" style={{ background: 'var(--surface)', paddingTop: 0 }}>
 				<div className="section-inner">
 					<div className="section-eyebrow">FAQs</div>

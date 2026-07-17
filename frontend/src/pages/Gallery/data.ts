@@ -6,94 +6,94 @@ export const galleryItems = [
 		img: '/images/gallery/events/launch-ceremony-group-photo.jpg',
 		text: 'SPAK Official Launch Ceremony — Nairobi, 2023'
 	},
-	{
-		// No matching photo yet for this one — keeping the icon placeholder.
-		id: 2,
-		cat: 'training',
-		tag: 'Training',
-		img: '📚',
-		text: 'Paediatric Anaesthesia Short Course — University of Nairobi'
-	},
-	{
-		// No matching photo yet for this one — keeping the icon placeholder.
-		id: 3,
-		cat: 'outreach',
-		tag: 'Outreach',
-		img: '🏥',
-		text: 'Surgical Camp — Nakuru Level 5 Hospital'
-	},
-	{
-		// No matching photo yet for this one — keeping the icon placeholder.
-		id: 4,
-		cat: 'training',
-		tag: 'Training',
-		img: '🩺',
-		text: 'Fellowship Simulation Lab Session'
-	},
-	{
-		// No matching photo yet for this one — keeping the icon placeholder.
-		id: 5,
-		cat: 'team',
-		tag: 'Team',
-		img: '👥',
-		text: 'SPAK Executive Committee Meeting 2024'
-	},
-	{
-		// No matching photo yet for this one — keeping the icon placeholder.
-		id: 6,
-		cat: 'events',
-		tag: 'Events',
-		img: '🎓',
-		text: 'Fellowship Graduation Ceremony'
-	},
-	{
-		// No matching photo yet for this one — keeping the icon placeholder.
-		id: 7,
-		cat: 'outreach',
-		tag: 'Outreach',
-		img: '🌍',
-		text: 'County Hospital Outreach — Western Kenya'
-	},
-	{
-		// No matching photo yet for this one — keeping the icon placeholder.
-		id: 8,
-		cat: 'events',
-		tag: 'Events',
-		img: '🤝',
-		text: 'WFSA Partnership Signing — East Africa Summit'
-	},
-	{
-		// No matching photo yet for this one — keeping the icon placeholder.
-		id: 9,
-		cat: 'training',
-		tag: 'Training',
-		img: '🔬',
-		text: 'Research Workshop — Data Collection Methods'
-	},
-	{
-		// No matching photo yet for this one — keeping the icon placeholder.
-		id: 10,
-		cat: 'outreach',
-		tag: 'Outreach',
-		img: '👶',
-		text: 'Paediatric Theatre — KidsOR Equipment Installation'
-	},
-	{
-		// No matching photo yet for this one — keeping the icon placeholder.
-		id: 11,
-		cat: 'team',
-		tag: 'Team',
-		img: '🎯',
-		text: 'Annual General Meeting 2024'
-	},
-	{
-		// No matching photo yet for this one — keeping the icon placeholder.
-		id: 12,
-		cat: 'training',
-		tag: 'Training',
-		img: '💉',
-		text: 'Hands-On Anaesthesia Skills Workshop'
-	},
+	// {
+	// 	// No matching photo yet for this one — keeping the icon placeholder.
+	// 	id: 2,
+	// 	cat: 'training',
+	// 	tag: 'Training',
+	// 	img: '📚',
+	// 	text: 'Paediatric Anaesthesia Short Course — University of Nairobi'
+	// },
+	// {
+	// 	// No matching photo yet for this one — keeping the icon placeholder.
+	// 	id: 3,
+	// 	cat: 'outreach',
+	// 	tag: 'Outreach',
+	// 	img: '🏥',
+	// 	text: 'Surgical Camp — Nakuru Level 5 Hospital'
+	// },
+	// {
+	// 	// No matching photo yet for this one — keeping the icon placeholder.
+	// 	id: 4,
+	// 	cat: 'training',
+	// 	tag: 'Training',
+	// 	img: '🩺',
+	// 	text: 'Fellowship Simulation Lab Session'
+	// },
+	// {
+	// 	// No matching photo yet for this one — keeping the icon placeholder.
+	// 	id: 5,
+	// 	cat: 'team',
+	// 	tag: 'Team',
+	// 	img: '👥',
+	// 	text: 'SPAK Executive Committee Meeting 2024'
+	// },
+	// {
+	// 	// No matching photo yet for this one — keeping the icon placeholder.
+	// 	id: 6,
+	// 	cat: 'events',
+	// 	tag: 'Events',
+	// 	img: '🎓',
+	// 	text: 'Fellowship Graduation Ceremony'
+	// },
+	// {
+	// 	// No matching photo yet for this one — keeping the icon placeholder.
+	// 	id: 7,
+	// 	cat: 'outreach',
+	// 	tag: 'Outreach',
+	// 	img: '🌍',
+	// 	text: 'County Hospital Outreach — Western Kenya'
+	// },
+	// {
+	// 	// No matching photo yet for this one — keeping the icon placeholder.
+	// 	id: 8,
+	// 	cat: 'events',
+	// 	tag: 'Events',
+	// 	img: '🤝',
+	// 	text: 'WFSA Partnership Signing — East Africa Summit'
+	// },
+	// {
+	// 	// No matching photo yet for this one — keeping the icon placeholder.
+	// 	id: 9,
+	// 	cat: 'training',
+	// 	tag: 'Training',
+	// 	img: '🔬',
+	// 	text: 'Research Workshop — Data Collection Methods'
+	// },
+	// {
+	// 	// No matching photo yet for this one — keeping the icon placeholder.
+	// 	id: 10,
+	// 	cat: 'outreach',
+	// 	tag: 'Outreach',
+	// 	img: '👶',
+	// 	text: 'Paediatric Theatre — KidsOR Equipment Installation'
+	// },
+	// {
+	// 	// No matching photo yet for this one — keeping the icon placeholder.
+	// 	id: 11,
+	// 	cat: 'team',
+	// 	tag: 'Team',
+	// 	img: '🎯',
+	// 	text: 'Annual General Meeting 2024'
+	// },
+	// {
+	// 	// No matching photo yet for this one — keeping the icon placeholder.
+	// 	id: 12,
+	// 	cat: 'training',
+	// 	tag: 'Training',
+	// 	img: '💉',
+	// 	text: 'Hands-On Anaesthesia Skills Workshop'
+	// },
 	{
 		id: 13,
 		cat: 'team',
