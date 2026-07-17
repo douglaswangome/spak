@@ -11,8 +11,8 @@
 	overflow: hidden;
 	background:
 		linear-gradient(150deg, rgba(11, 37, 69, 0.93), rgba(11, 127, 121, 0.88)),
-		url('https://images.unsplash.com/photo-1637614289208-2751970d2ef4?fm=jpg&q=80&w=1600&auto=format&fit=crop')
-		center 30% / cover;
+		url('/images/gallery/events/launch-ceremony-group-photo.jpg')
+		center 20% / cover;
 	padding: 4.5rem 1.5rem 3.5rem;
 	text-align: center;
 }
@@ -98,7 +98,7 @@
 	align-items: flex-end;
 	background:
 		linear-gradient(165deg, rgba(11, 37, 69, 0.1), rgba(14, 166, 159, 0.55)),
-		url('https://images.unsplash.com/photo-1637614289208-2751970d2ef4?fm=jpg&q=80&w=1200&auto=format&fit=crop')
+		url('/images/gallery/training/hands-on-anaesthesia-skills-workshop.jpg')
 		center / cover;
 	box-shadow: 0 24px 55px -18px rgba(11, 37, 69, 0.4);
 }

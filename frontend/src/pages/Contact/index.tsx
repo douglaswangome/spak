@@ -183,8 +183,8 @@ export function Contact() {
 
 							<div className="contact-photo">
 								<img
-									src="https://images.unsplash.com/photo-1758691463331-2ac00e6f676f?fm=jpg&q=80&w=1200&auto=format&fit=crop"
-									alt="A paediatrician talking with a young patient and their parent"
+									src="/images/gallery/team/colleagues-outside-nairobi-hospital.jpg"
+									alt="SPAK members outside The Nairobi Hospital"
 									loading="lazy"
 								/>
 							</div>

@@ -67,13 +67,13 @@ export function Home() {
 					</div>
 					<div className="what-we-do-media">
 						<img
-							src="https://images.unsplash.com/photo-1640876777012-bdb00a6323e2?auto=format&fit=crop&w=800&q=80"
-							alt="Surgical team preparing for a paediatric procedure"
+							src="/images/gallery/training/hands-on-anaesthesia-skills-workshop.jpg"
+							alt="SPAK anaesthesiologists during a hands-on paediatric theatre session"
 							loading="lazy"
 						/>
 						<img
-							src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=800&q=80"
-							alt="Stethoscope and paediatric monitoring equipment"
+							src="/images/gallery/outreach/surgical-camp-nakuru-level5-hospital.jpg"
+							alt="SPAK surgical outreach team at Nakuru Level 5 Hospital"
 							loading="lazy"
 						/>
 					</div>
@@ -132,27 +132,35 @@ export function Home() {
 						</figure>
 						<figure className="gallery-item">
 							<img
-								src="https://images.unsplash.com/photo-1640876777012-bdb00a6323e2?auto=format&fit=crop&w=800&q=80"
-								alt="Surgical team preparing for a paediatric procedure"
+								src="/images/gallery/training/hands-on-anaesthesia-skills-workshop.jpg"
+								alt="Anaesthesia team in the operating theatre during a hands-on skills workshop"
 								loading="lazy"
 							/>
 							<figcaption>Trained teams, ready in the operating theatre</figcaption>
 						</figure>
 						<figure className="gallery-item">
 							<img
-								src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=800&q=80"
-								alt="Stethoscope and paediatric monitoring equipment"
+								src="/images/gallery/outreach/surgical-camp-nakuru-level5-hospital.jpg"
+								alt="Surgical outreach team at Nakuru Level 5 Hospital"
 								loading="lazy"
 							/>
-							<figcaption>The right equipment, in the right hands</figcaption>
+							<figcaption>On the ground at surgical outreach camps</figcaption>
 						</figure>
 						<figure className="gallery-item">
 							<img
-								src="https://images.unsplash.com/photo-1567057420215-0afa9aa9253a?auto=format&fit=crop&w=800&q=80"
-								alt="Children in a classroom, part of SPAK's community reach across East Africa"
+								src="/images/gallery/events/members-with-family-outside-event.jpg"
+								alt="SPAK members celebrating with family at a Society event"
 								loading="lazy"
 							/>
-							<figcaption>Advocacy that reaches classrooms and communities</figcaption>
+							<figcaption>A community that celebrates together</figcaption>
+						</figure>
+						<figure className="gallery-item">
+							<img
+								src="/images/gallery/events/launch-ceremony-group-photo.jpg"
+								alt="SPAK members on stage at the official Society launch ceremony"
+								loading="lazy"
+							/>
+							<figcaption>Marking milestones as a growing Society</figcaption>
 						</figure>
 					</div>
 				</div>

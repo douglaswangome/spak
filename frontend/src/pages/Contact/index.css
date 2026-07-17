@@ -11,7 +11,7 @@
 	overflow: hidden;
 	background:
 		linear-gradient(150deg, rgba(11, 37, 69, 0.93), rgba(11, 127, 121, 0.88)),
-		url('https://images.unsplash.com/photo-1758691463331-2ac00e6f676f?fm=jpg&q=80&w=1600&auto=format&fit=crop')
+		url('/images/gallery/events/event-ushers-with-flowers.jpg')
 		center 25% / cover;
 	padding: 4rem 1.5rem 3rem;
 	text-align: center;

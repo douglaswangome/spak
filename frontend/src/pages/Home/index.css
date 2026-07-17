@@ -297,6 +297,7 @@ section.section#in-pictures .section-body {
 #page-home .gallery-item:nth-child(2) { animation-delay: 0.08s; }
 #page-home .gallery-item:nth-child(3) { animation-delay: 0.16s; }
 #page-home .gallery-item:nth-child(4) { animation-delay: 0.24s; }
+#page-home .gallery-item:nth-child(5) { animation-delay: 0.32s; }
 
 #page-home .gallery-item img {
 	width: 100%;

@@ -29,15 +29,15 @@
 }
 
 [data-theme="dark"] {
-	--bg: #0d1526;
-	--bg2: #13213f;
-	--surface: #16244a;
-	--surface2: #223262;
-	--text: #e8eef8;
-	--text2: #a8b8d0;
-	--text3: #6b7fa0;
-	--border: #32456e;
-	--shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+	--bg: #0f1b33;
+	--bg2: #172a4d;
+	--surface: #1d2f5c;
+	--surface2: #28407a;
+	--text: #f4f8ff;
+	--text2: #c2d0ea;
+	--text3: #8fabd6;
+	--border: #40599a;
+	--shadow: 0 2px 14px rgba(0, 0, 0, 0.5);
 }
 
 body {
@@ -184,6 +184,11 @@ nav {
 	color: var(--navy)
 }
 
+[data-theme="dark"] .dark-btn:hover {
+	border-color: var(--lime);
+	color: var(--lime)
+}
+
 .btn-primary {
 	padding: 0.45rem 1.1rem;
 	background: var(--navy);
@@ -196,6 +201,16 @@ nav {
 
 .btn-primary:hover {
 	background: var(--navy-dark)
+}
+
+[data-theme="dark"] .btn-primary {
+	background: var(--navy-light);
+	color: #071022;
+}
+
+[data-theme="dark"] .btn-primary:hover {
+	background: var(--lime);
+	color: #071022;
 }
 
 .hamburger {

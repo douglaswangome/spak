@@ -82,8 +82,8 @@ export function About() {
 							children's surgical safety in Kenya.</p>
 						<div className="leadership-photo">
 							<img
-								src="https://images.unsplash.com/photo-1758206523711-f20bb01033a5?fm=jpg&q=80&w=1200&auto=format&fit=crop"
-								alt="Anaesthesia team caring for a patient in the operating theatre"
+								src="/images/gallery/team/executive-committee-meeting-2024.jpg"
+								alt="SPAK Executive Committee members meeting together"
 								loading="lazy"
 							/>
 						</div>
