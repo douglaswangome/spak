@@ -1,21 +1,68 @@
+#page-gallery {
+	/* Bright accent palette (pop variants matching the rest of the site) */
+	--gallery-teal: #0EA69F;
+	--gallery-teal-dark: #0B7F79;
+	--gallery-coral: #FF6F5E;
+	--gallery-sun: #FFC145;
+}
+
 .gallery-hero {
-	background: var(--navy);
+	position: relative;
+	overflow: hidden;
+	background:
+		linear-gradient(150deg, rgba(11, 37, 69, 0.93), rgba(11, 127, 121, 0.88)),
+		url('https://images.unsplash.com/photo-1758206523711-f20bb01033a5?fm=jpg&q=80&w=1600&auto=format&fit=crop')
+		center 35% / cover;
 	padding: 4rem 1.5rem 3rem;
 	text-align: center;
 }
 
+.gallery-hero::before,
+.gallery-hero::after {
+	content: '';
+	position: absolute;
+	border-radius: 50%;
+	filter: blur(70px);
+	opacity: 0.4;
+	pointer-events: none;
+	z-index: 0;
+}
+
+.gallery-hero::before {
+	top: -60px;
+	left: -50px;
+	width: 220px;
+	height: 220px;
+	background: var(--gallery-sun);
+}
+
+.gallery-hero::after {
+	bottom: -80px;
+	right: -40px;
+	width: 250px;
+	height: 250px;
+	background: var(--gallery-coral);
+}
+
 .gallery-hero-inner {
+	position: relative;
+	z-index: 1;
 	max-width: 700px;
 	margin: 0 auto;
 }
 
 .gallery-eyebrow {
+	display: inline-block;
 	font-size: 12px;
 	font-weight: 700;
-	color: var(--lime);
+	color: var(--gallery-sun);
 	text-transform: uppercase;
 	letter-spacing: 1.5px;
 	margin-bottom: 0.75rem;
+	padding: 0.3rem 0.9rem;
+	border: 1px solid rgba(255, 193, 69, 0.5);
+	border-radius: 999px;
+	background: rgba(255, 193, 69, 0.08);
 }
 
 .gallery-title {
@@ -23,21 +70,256 @@
 	font-weight: 800;
 	color: #fff;
 	margin-bottom: 1rem;
+	text-shadow: 0 2px 20px rgba(0, 0, 0, 0.25);
 }
 
 .gallery-desc {
 	font-size: 1rem;
-	color: rgba(255, 255, 255, 0.72);
+	color: rgba(255, 255, 255, 0.85);
 	line-height: 1.8;
 	max-width: 520px;
 	margin: 0 auto;
 }
 
-/* Ensure the gallery-grid exists in index.css as you had it,
-   but confirm it uses CSS Grid as intended */
-.gallery-grid {
+/* ── Filter pills: brighter active/hover state, page-scoped so it
+   doesn't affect .filter-btn anywhere else it's reused ── */
+#page-gallery .filter-btn {
+	transition: all var(--transition), transform 0.2s ease;
+}
+
+#page-gallery .filter-btn.active,
+#page-gallery .filter-btn:hover {
+	background: linear-gradient(135deg, var(--gallery-teal), var(--gallery-teal-dark));
+	border-color: var(--gallery-teal);
+	color: #fff;
+	transform: translateY(-2px);
+	box-shadow: 0 10px 22px -10px rgba(14, 166, 159, 0.55);
+}
+
+/* ── Gallery grid: keep the site-wide grid/card mechanics, just add
+   polish — hover lift, a redesigned tag pill, richer overlay ── */
+#page-gallery .gallery-grid {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
 	gap: 1.25rem;
 	margin-top: 2rem;
+}
+
+#page-gallery .gallery-item {
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	cursor: pointer;
+}
+
+#page-gallery .gallery-item:hover {
+	transform: translateY(-5px) scale(1.015);
+	box-shadow: 0 20px 40px -16px rgba(11, 37, 69, 0.35);
+}
+
+#page-gallery .gallery-tag {
+	background: rgba(255, 255, 255, 0.18);
+	backdrop-filter: blur(4px);
+	border: 1px solid rgba(255, 255, 255, 0.35);
+	position: relative;
+	z-index: 1;
+}
+
+#page-gallery .gallery-img {
+	position: relative;
+}
+
+#page-gallery .gallery-img img {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+#page-gallery .gallery-cat-teal {
+	background: linear-gradient(135deg, var(--gallery-teal-dark), var(--gallery-teal));
+}
+
+#page-gallery .gallery-cat-mix {
+	background: linear-gradient(135deg, var(--gallery-coral), var(--gallery-sun));
+}
+
+#page-gallery .gallery-overlay-text {
+	font-weight: 700;
+}
+
+/* ── Empty state when a filter has no matching items ── */
+#page-gallery .gallery-empty {
+	grid-column: 1 / -1;
+	text-align: center;
+	padding: 3rem 1.5rem;
+	color: var(--text3);
+	font-size: 0.95rem;
+	border: 1.5px dashed var(--border);
+	border-radius: 16px;
+}
+
+/* ============================================================
+   LIGHTBOX — click a tile to open, click outside / Esc / × to
+   close, arrow keys or the on-screen arrows to navigate.
+   ============================================================ */
+#page-gallery .lightbox-overlay {
+	position: fixed;
+	inset: 0;
+	background: rgba(11, 37, 69, 0.88);
+	backdrop-filter: blur(6px);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 1000;
+	padding: 1.5rem;
+	animation: lightbox-fade-in 0.2s ease;
+}
+
+@keyframes lightbox-fade-in {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+
+#page-gallery .lightbox-content {
+	position: relative;
+	max-width: min(900px, 90vw);
+	max-height: 85vh;
+	display: flex;
+	flex-direction: column;
+	background: var(--surface, #fff);
+	border-radius: 16px;
+	overflow: hidden;
+	box-shadow: 0 30px 70px -20px rgba(0, 0, 0, 0.6);
+	animation: lightbox-pop-in 0.22s ease;
+}
+
+@keyframes lightbox-pop-in {
+	from {
+		opacity: 0;
+		transform: scale(0.96) translateY(8px);
+	}
+	to {
+		opacity: 1;
+		transform: none;
+	}
+}
+
+#page-gallery .lightbox-media {
+	flex: 1;
+	min-height: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: var(--pop-navy, #0B2545);
+}
+
+#page-gallery .lightbox-media img {
+	display: block;
+	max-width: 100%;
+	max-height: 75vh;
+	width: auto;
+	height: auto;
+	object-fit: contain;
+}
+
+#page-gallery .lightbox-emoji {
+	font-size: 8rem;
+	padding: 3rem;
+	color: rgba(255, 255, 255, 0.75);
+}
+
+#page-gallery .lightbox-caption {
+	padding: 1rem 1.5rem 1.25rem;
+	text-align: center;
+}
+
+#page-gallery .lightbox-caption .lightbox-tag {
+	display: inline-block;
+	font-size: 11px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.6px;
+	color: var(--gallery-teal-dark);
+	background: rgba(14, 166, 159, 0.12);
+	padding: 3px 10px;
+	border-radius: 999px;
+	margin-bottom: 0.5rem;
+}
+
+#page-gallery .lightbox-caption p {
+	font-size: 0.95rem;
+	font-weight: 600;
+	color: var(--text);
+	margin: 0;
+}
+
+#page-gallery .lightbox-close,
+#page-gallery .lightbox-nav {
+	position: fixed;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: rgba(255, 255, 255, 0.12);
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	color: #fff;
+	border-radius: 50%;
+	cursor: pointer;
+	transition: background 0.2s ease, transform 0.2s ease;
+}
+
+#page-gallery .lightbox-close:hover,
+#page-gallery .lightbox-nav:hover {
+	background: rgba(255, 255, 255, 0.25);
+	transform: scale(1.06);
+}
+
+#page-gallery .lightbox-close {
+	top: 1.5rem;
+	right: 1.5rem;
+	width: 42px;
+	height: 42px;
+}
+
+#page-gallery .lightbox-nav {
+	top: 50%;
+	transform: translateY(-50%);
+	width: 48px;
+	height: 48px;
+}
+
+#page-gallery .lightbox-nav:hover {
+	transform: translateY(-50%) scale(1.06);
+}
+
+#page-gallery .lightbox-prev {
+	left: 1.5rem;
+}
+
+#page-gallery .lightbox-next {
+	right: 1.5rem;
+}
+
+@media (max-width: 640px) {
+	#page-gallery .lightbox-nav {
+		width: 40px;
+		height: 40px;
+	}
+	#page-gallery .lightbox-prev {
+		left: 0.5rem;
+	}
+	#page-gallery .lightbox-next {
+		right: 0.5rem;
+	}
+	#page-gallery .lightbox-close {
+		top: 0.75rem;
+		right: 0.75rem;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	#page-gallery .lightbox-overlay,
+	#page-gallery .lightbox-content {
+		animation: none;
+	}
 }
