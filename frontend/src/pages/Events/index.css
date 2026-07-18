@@ -1,0 +1,228 @@
+#page-events {
+	--ev-teal: #0EA69F;
+	--ev-teal-dark: #0B7F79;
+	--ev-coral: #FF6F5E;
+	--ev-sun: #FFC145;
+	--ev-navy: #0B2545;
+}
+
+.events-hero {
+	position: relative;
+	overflow: hidden;
+	background: linear-gradient(150deg, rgba(11, 37, 69, 0.94), rgba(11, 127, 121, 0.88));
+	padding: 4rem 1.5rem 3rem;
+	text-align: center;
+}
+
+.events-hero::before,
+.events-hero::after {
+	content: '';
+	position: absolute;
+	border-radius: 50%;
+	filter: blur(70px);
+	opacity: 0.35;
+	pointer-events: none;
+}
+
+.events-hero::before {
+	top: -60px;
+	left: -50px;
+	width: 220px;
+	height: 220px;
+	background: var(--ev-sun);
+}
+
+.events-hero::after {
+	bottom: -80px;
+	right: -40px;
+	width: 250px;
+	height: 250px;
+	background: var(--ev-coral);
+}
+
+.events-hero-inner {
+	position: relative;
+	z-index: 1;
+	max-width: 700px;
+	margin: 0 auto;
+}
+
+.events-eyebrow {
+	display: inline-block;
+	font-size: 12px;
+	font-weight: 700;
+	color: var(--ev-sun);
+	text-transform: uppercase;
+	letter-spacing: 1.5px;
+	margin-bottom: 0.75rem;
+	padding: 0.3rem 0.9rem;
+	border: 1px solid rgba(255, 193, 69, 0.5);
+	border-radius: 999px;
+	background: rgba(255, 193, 69, 0.08);
+}
+
+.events-title {
+	font-size: clamp(1.8rem, 4vw, 2.8rem);
+	font-weight: 800;
+	color: #fff;
+	margin-bottom: 1rem;
+	text-shadow: 0 2px 20px rgba(0, 0, 0, 0.25);
+}
+
+.events-desc {
+	font-size: 1rem;
+	color: rgba(255, 255, 255, 0.85);
+	line-height: 1.8;
+	max-width: 520px;
+	margin: 0 auto;
+}
+
+#page-events .events-block + .events-block {
+	margin-top: 3.5rem;
+}
+
+#page-events .events-block-past .event-card {
+	opacity: 0.85;
+}
+
+#page-events .events-list {
+	display: flex;
+	flex-direction: column;
+	gap: 1.1rem;
+	margin-top: 2rem;
+}
+
+#page-events .event-card {
+	position: relative;
+	display: grid;
+	grid-template-columns: 96px 1fr;
+	gap: 1.5rem;
+	background: var(--surface);
+	border: 1px solid var(--border);
+	border-radius: 16px;
+	padding: 1.5rem;
+	overflow: hidden;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#page-events .event-card::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: 4px;
+	background: linear-gradient(180deg, var(--ev-teal), var(--ev-coral));
+}
+
+#page-events .events-block-past .event-card::before {
+	background: linear-gradient(180deg, var(--text3), var(--border));
+}
+
+#page-events .event-card:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 20px 36px -18px rgba(11, 37, 69, 0.28);
+}
+
+#page-events .event-date {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(135deg, var(--ev-teal), var(--ev-teal-dark));
+	border-radius: 12px;
+	color: #fff;
+	padding: 0.75rem 0.5rem;
+	text-align: center;
+}
+
+#page-events .events-block-past .event-date {
+	background: linear-gradient(135deg, var(--text3), var(--border));
+	color: var(--text);
+}
+
+#page-events .event-date-day {
+	font-size: 1.6rem;
+	font-weight: 800;
+	line-height: 1;
+}
+
+#page-events .event-date-month {
+	font-size: 0.7rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	margin-top: 0.2rem;
+}
+
+#page-events .event-tag {
+	display: inline-block;
+	font-size: 11px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	color: var(--ev-teal-dark);
+	background: rgba(14, 166, 159, 0.12);
+	padding: 3px 10px;
+	border-radius: 999px;
+	margin-bottom: 0.5rem;
+}
+
+#page-events .event-body h3 {
+	font-size: 1.1rem;
+	font-weight: 700;
+	margin-bottom: 0.4rem;
+	color: var(--text);
+}
+
+#page-events .event-body p {
+	color: var(--text2);
+	font-size: 0.92rem;
+	line-height: 1.6;
+	margin-bottom: 0.85rem;
+}
+
+#page-events .event-meta {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1.25rem;
+	font-size: 0.82rem;
+	color: var(--text3);
+}
+
+#page-events .event-meta span {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.35rem;
+}
+
+#page-events .events-empty {
+	margin-top: 2rem;
+	text-align: center;
+	padding: 3rem 1.5rem;
+	color: var(--text3);
+	font-size: 0.95rem;
+	border: 1.5px dashed var(--border);
+	border-radius: 16px;
+}
+
+@media (max-width: 560px) {
+	#page-events .event-card {
+		grid-template-columns: 1fr;
+	}
+	#page-events .event-date {
+		flex-direction: row;
+		gap: 0.5rem;
+		width: fit-content;
+		padding: 0.4rem 0.9rem;
+	}
+	#page-events .event-date-day {
+		font-size: 1.2rem;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	#page-events .event-card {
+		transition: none;
+	}
+}

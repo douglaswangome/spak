@@ -30,6 +30,8 @@ export const Navbar = () => {
 					<Link to="/" className="nav-link" activeProps={{ className: 'active' }}>Home</Link>
 					<Link to="/about" className="nav-link" activeProps={{ className: 'active' }}>About Us</Link>
 					<Link to="/gallery" className="nav-link" activeProps={{ className: 'active' }}>Gallery</Link>
+					<Link to="/events" className="nav-link" activeProps={{ className: 'active' }}>Events</Link>
+					<Link to="/resources" className="nav-link" activeProps={{ className: 'active' }}>Resources</Link>
 					<Link to="/contact" className="nav-link" activeProps={{ className: 'active' }}>Contact Us</Link>
 				</div>
 
@@ -74,6 +76,22 @@ export const Navbar = () => {
 					activeProps={{ className: 'active' }}
 				>
 					Gallery
+				</Link>
+				<Link
+					to="/events"
+					className="mobile-link"
+					onClick={() => setIsMobileOpen(false)}
+					activeProps={{ className: 'active' }}
+				>
+					Events
+				</Link>
+				<Link
+					to="/resources"
+					className="mobile-link"
+					onClick={() => setIsMobileOpen(false)}
+					activeProps={{ className: 'active' }}
+				>
+					Resources
 				</Link>
 				<Link
 					to="/contact"

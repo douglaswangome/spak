@@ -73,6 +73,30 @@ export function Home() {
 					'-=0.5'
 				);
 
+				gsap.from('.anniversary-banner-inner', {
+					opacity: 0,
+					y: 30,
+					scale: 0.97,
+					duration: 0.8,
+					ease: 'power3.out',
+					scrollTrigger: {
+						trigger: '.anniversary-banner',
+						start: 'top 90%',
+						once: true,
+					},
+				});
+
+				// Continuous soft pulse — this section has no scroll-triggered
+				// re-entry, so a quiet ongoing motion is what keeps the badge
+				// from blending into the page once the entrance settles.
+				gsap.to('.anniversary-badge', {
+					scale: 1.06,
+					duration: 1.1,
+					repeat: -1,
+					yoyo: true,
+					ease: 'sine.inOut',
+				});
+
 				gsap.from('.stats-bar .stat-item', {
 					opacity: 0,
 					y: 16,
@@ -281,6 +305,25 @@ export function Home() {
 							<div className="hero-stat hero-stat-1">🩺 In Safe Hands</div>
 							<div className="hero-stat hero-stat-2">🌍 East Africa Reach</div>
 						</div>
+					</div>
+				</div>
+			</section>
+
+			<section className="anniversary-banner">
+				<div className="anniversary-banner-inner">
+					<div className="anniversary-banner-media">
+						<img
+							src="/images/home/spak-first-anniversary.jpg"
+							alt="SPAK leadership and members marking the Society's first anniversary celebration"
+							loading="lazy"
+							onError={handleImgError}
+						/>
+					</div>
+					<div className="anniversary-banner-text">
+						<span className="anniversary-badge">🎉 1 Year Anniversary</span>
+						<h2>SPAK Turns One!</h2>
+						<p>A year down, forever to go — ensuring children are <strong>In Safe Hands</strong>. Thank you to
+							everyone who celebrated this milestone with us.</p>
 					</div>
 				</div>
 			</section>

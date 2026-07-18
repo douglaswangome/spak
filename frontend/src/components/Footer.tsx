@@ -14,8 +14,10 @@ export function Footer() {
 					<h4>Navigate</h4>
 					<Link className="footer-link" to="/">Home</Link>
 					<Link className="footer-link" to="/about">About Us</Link>
-					<a className="footer-link" href={"#"}>Gallery</a>
-					<a className="footer-link" href={"#"}>Contact</a>
+					<Link className="footer-link" to="/gallery">Gallery</Link>
+					<Link className="footer-link" to="/events">Events</Link>
+					<Link className="footer-link" to="/resources">Resources</Link>
+					<Link className="footer-link" to="/contact">Contact</Link>
 				</div>
 				<div>
 					<h4>Connect</h4>

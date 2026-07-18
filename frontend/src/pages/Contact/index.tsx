@@ -10,6 +10,7 @@ import {
 	GlobeIcon,
 	LinkedinLogoIcon,
 	MapPinIcon,
+	PhoneIcon,
 	SpinnerIcon,
 	WarningCircleIcon,
 	XLogoIcon
@@ -251,7 +252,18 @@ export function Contact() {
 								<div className="contact-icon"><MapPinIcon size={22} weight="fill"/></div>
 								<div className="contact-detail-text">
 									<div className="label">Address</div>
-									<div className="value">The Nairobi Hospital, Argwings Kodhek Road, Nairobi, Kenya</div>
+									<div className="value">Kenya Medical Association Center, Suite 406, Wing C, Mara Road, Nairobi · P.O. Box 187-00202 KNH, Nairobi, Kenya</div>
+								</div>
+							</div>
+							<div className="contact-detail">
+								<div className="contact-icon"><PhoneIcon size={22} weight="fill"/></div>
+								<div className="contact-detail-text">
+									<div className="label">Phone</div>
+									<div className="value">
+										<a href="tel:+254794187237" style={{ color: 'var(--navy)', fontWeight: 700 }}>
+											0794 187 237
+										</a>
+									</div>
 								</div>
 							</div>
 							<div className="contact-detail">
@@ -280,7 +292,7 @@ export function Contact() {
 
 							<div className="map-placeholder">
 								<div className="map-pin"><MapPinIcon size={32} weight="fill" color="var(--text3)"/></div>
-								<div>The Nairobi Hospital · Nairobi, Kenya</div>
+								<div>Kenya Medical Association Center · Mara Road, Nairobi</div>
 								<div style={{ fontSize: '11px', color: 'var(--text3)' }}>
 									Map integration available via Google Maps API
 								</div>

@@ -6,94 +6,6 @@ export const galleryItems = [
 		img: '/images/gallery/events/launch-ceremony-group-photo.jpg',
 		text: 'SPAK Official Launch Ceremony — Nairobi, 2023'
 	},
-	// {
-	// 	// No matching photo yet for this one — keeping the icon placeholder.
-	// 	id: 2,
-	// 	cat: 'training',
-	// 	tag: 'Training',
-	// 	img: '📚',
-	// 	text: 'Paediatric Anaesthesia Short Course — University of Nairobi'
-	// },
-	// {
-	// 	// No matching photo yet for this one — keeping the icon placeholder.
-	// 	id: 3,
-	// 	cat: 'outreach',
-	// 	tag: 'Outreach',
-	// 	img: '🏥',
-	// 	text: 'Surgical Camp — Nakuru Level 5 Hospital'
-	// },
-	// {
-	// 	// No matching photo yet for this one — keeping the icon placeholder.
-	// 	id: 4,
-	// 	cat: 'training',
-	// 	tag: 'Training',
-	// 	img: '🩺',
-	// 	text: 'Fellowship Simulation Lab Session'
-	// },
-	// {
-	// 	// No matching photo yet for this one — keeping the icon placeholder.
-	// 	id: 5,
-	// 	cat: 'team',
-	// 	tag: 'Team',
-	// 	img: '👥',
-	// 	text: 'SPAK Executive Committee Meeting 2024'
-	// },
-	// {
-	// 	// No matching photo yet for this one — keeping the icon placeholder.
-	// 	id: 6,
-	// 	cat: 'events',
-	// 	tag: 'Events',
-	// 	img: '🎓',
-	// 	text: 'Fellowship Graduation Ceremony'
-	// },
-	// {
-	// 	// No matching photo yet for this one — keeping the icon placeholder.
-	// 	id: 7,
-	// 	cat: 'outreach',
-	// 	tag: 'Outreach',
-	// 	img: '🌍',
-	// 	text: 'County Hospital Outreach — Western Kenya'
-	// },
-	// {
-	// 	// No matching photo yet for this one — keeping the icon placeholder.
-	// 	id: 8,
-	// 	cat: 'events',
-	// 	tag: 'Events',
-	// 	img: '🤝',
-	// 	text: 'WFSA Partnership Signing — East Africa Summit'
-	// },
-	// {
-	// 	// No matching photo yet for this one — keeping the icon placeholder.
-	// 	id: 9,
-	// 	cat: 'training',
-	// 	tag: 'Training',
-	// 	img: '🔬',
-	// 	text: 'Research Workshop — Data Collection Methods'
-	// },
-	// {
-	// 	// No matching photo yet for this one — keeping the icon placeholder.
-	// 	id: 10,
-	// 	cat: 'outreach',
-	// 	tag: 'Outreach',
-	// 	img: '👶',
-	// 	text: 'Paediatric Theatre — KidsOR Equipment Installation'
-	// },
-	// {
-	// 	// No matching photo yet for this one — keeping the icon placeholder.
-	// 	id: 11,
-	// 	cat: 'team',
-	// 	tag: 'Team',
-	// 	img: '🎯',
-	// 	text: 'Annual General Meeting 2024'
-	// },
-	// {
-	// 	// No matching photo yet for this one — keeping the icon placeholder.
-	// 	id: 12,
-	// 	cat: 'training',
-	// 	tag: 'Training',
-	// 	img: '💉',
-	// 	text: 'Hands-On Anaesthesia Skills Workshop'
-	// },
 	{
 		id: 13,
 		cat: 'team',
@@ -163,5 +75,47 @@ export const galleryItems = [
 		tag: 'Events',
 		img: '/images/gallery/events/members-with-family-outside-event.jpg',
 		text: 'Members and Family Celebrate Together'
+	},
+	{
+		id: 23,
+		cat: 'outreach',
+		tag: 'Outreach',
+		img: '/images/gallery/outreach/kiambu-county-referral-hospital-visit.jpg',
+		text: 'SPAK Outreach Visit — Kiambu County Referral Hospital'
+	},
+	{
+		id: 24,
+		cat: 'events',
+		tag: 'Events',
+		img: '/images/gallery/events/regional-conference-delegates-prideinn.jpg',
+		text: 'SPAK Delegates at a Regional Paediatric Anaesthesia Conference'
+	},
+	{
+		id: 25,
+		cat: 'events',
+		tag: 'Events',
+		img: '/images/gallery/events/team-with-ksa-smile-train-partners.jpg',
+		text: 'SPAK with the Kenya Society of Anaesthesiologists & Smile Train'
+	},
+	{
+		id: 26,
+		cat: 'outreach',
+		tag: 'Outreach',
+		img: '/images/gallery/outreach/kaps-surgical-camp-garissa-poster.jpg',
+		text: 'KAPS Annual Paediatric Surgical Camp — Garissa County Referral Hospital'
+	},
+	{
+		id: 27,
+		cat: 'training',
+		tag: 'Training',
+		img: '/images/gallery/training/team-cleft-safe-surgery-initiative.jpg',
+		text: 'Team Cleft — Safe Surgery and Anaesthesia Initiative'
+	},
+	{
+		id: 28,
+		cat: 'outreach',
+		tag: 'Outreach',
+		img: '/images/gallery/outreach/garissa-level5-hospital-visit.jpg',
+		text: 'SPAK Team at Garissa Level 5 Teaching & Referral Hospital'
 	},
 ];
