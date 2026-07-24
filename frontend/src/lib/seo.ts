@@ -1,7 +1,7 @@
 import type { AnyRouteMatch } from '@tanstack/react-router';
 
 export const siteName = 'Society of Paediatric Anaesthesiologists of Kenya';
-export const siteUrl = 'https://spak.or.ke';
+export const siteUrl = 'https://www.spak.or.ke';
 export const siteDescription =
 	'SPAK advances paediatric anaesthesia in Kenya through training, research, advocacy, and collaboration.';
 export const defaultOgImage = new URL('/logo.svg', siteUrl).toString();
@@ -71,6 +71,11 @@ export function createOrganizationSchema({
 		'@context': 'https://schema.org',
 		'@type': 'Organization',
 		name,
+		alternateName: [
+			'SPAK',
+			'Society of Paediatric Anaesthesiologist Kenya',
+			'Society of Pediatric Anesthesiologists of Kenya',
+		],
 		url: absoluteUrl(pathname),
 		description,
 		logo: defaultOgImage,
