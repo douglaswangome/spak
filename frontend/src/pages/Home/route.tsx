@@ -8,7 +8,7 @@ export const indexRoute = createRoute({
 	path: '/',
 	head: () => ({
 		...createSeoHead({
-			title: `SPAK | Paediatric Anaesthesia in Kenya`,
+			title: `SPAK | Society of Paediatric Anaesthesia in Kenya`,
 			description: siteDescription,
 			pathname: '/',
 		}),
