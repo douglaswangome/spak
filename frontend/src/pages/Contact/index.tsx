@@ -22,12 +22,12 @@ const FORMBRICKS_ENV_ID = import.meta.env.VITE_FORMBRICKS_ENV_ID;
 const FORMBRICKS_SURVEY_ID = import.meta.env.VITE_FORMBRICKS_SURVEY_ID;
 
 const FIELD_IDS = {
-	firstName: 'tuktvw0h1dpir3rs0kullq39',
-	lastName: 'ayn7fijwqlp44e1fj1m44c61',
-	email: 'y7tuj3degrax190d97fkbmq1',
-	organisation: 'wwzslv27ahmosap4jnjnid6h',
-	subject: 'wx6lxv5iu5juz2kr5fa5xixr',
-	message: 'p5axyhj2tjqi0w72t5n6k7bx',
+	firstName: 'xobdpgyh9u5wg0fq48qzcdrk',
+	lastName: 'y8e0fv0eqfrag8wwayu9fzsz',
+	email: 'ge6jj3ln3vnpfpb9ic903h7q',
+	organisation: 'kiko2vxl0ahxift6fgyxxwc1',
+	subject: 'xs4kgrd4aaakz5z118ki1xqv',
+	message: 'ilqy1k99m5w3o6l8kkq3cj42',
 } as const;
 
 type SubmitState = 'idle' | 'loading' | 'success' | 'error';
