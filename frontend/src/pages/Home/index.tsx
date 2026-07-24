@@ -320,9 +320,9 @@ export function Home() {
 						/>
 					</div>
 					<div className="anniversary-banner-text">
-						<span className="anniversary-badge">🎉 1 Year Anniversary</span>
-						<h2>SPAK Turns One!</h2>
-						<p>A year down, forever to go — ensuring children are <strong>In Safe Hands</strong>. Thank you to
+						<span className="anniversary-badge">🎉 3 Year Anniversary</span>
+						<h2>SPAK Turns Three!</h2>
+						<p>3 years down, forever to go — ensuring children are <strong>In Safe Hands</strong>. Thank you to
 							everyone who celebrated this milestone with us.</p>
 					</div>
 				</div>
