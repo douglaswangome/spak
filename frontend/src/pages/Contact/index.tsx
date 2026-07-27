@@ -291,10 +291,26 @@ export function Contact() {
 							</div>
 
 							<div className="map-placeholder">
-								<div className="map-pin"><MapPinIcon size={32} weight="fill" color="var(--text3)"/></div>
-								<div>Kenya Medical Association Center · Mara Road, Nairobi</div>
-								<div style={{ fontSize: '11px', color: 'var(--text3)' }}>
-									Map integration available via Google Maps API
+								<div
+									style={{
+										width: '100%',
+										maxWidth: '100%',
+										overflow: 'hidden',
+										borderRadius: '8px',
+									}}
+								>
+									<iframe
+										src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7935908882187!2d36.80878337586609!3d-1.2985987356415594!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10e92701d689%3A0x891a9579bf21a59d!2sKenya%20Medical%20Association!5e0!3m2!1sen!2ske!4v1785159769088!5m2!1sen!2ske"
+										style={{
+											width: '100%',
+											height: '300px',
+											border: 0,
+											display: 'block',
+										}}
+										allowFullScreen
+										loading="lazy"
+										referrerPolicy="strict-origin-when-cross-origin"
+									/>
 								</div>
 							</div>
 
@@ -307,7 +323,7 @@ export function Contact() {
 									<XLogoIcon size={20}/>
 								</a>
 								<a href="#" className="social-btn" title="LinkedIn">
-									<LinkedinLogoIcon size={20} weight="fill"/>
+								<LinkedinLogoIcon size={20} weight="fill"/>
 								</a>
 							</div>
 
